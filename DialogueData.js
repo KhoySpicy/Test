@@ -92,7 +92,7 @@ const dialogueData =[
 {
     id: "greetend",
   Name: "Monika",
-  avatar: "confuse.gif",
+  avatar: "Mon5.wepb",
   text:"Tạm thời như thế đi. Công việc của tôi ở đây cũng xong rồi, chúng ta sẽ gặp lại sau ",
       
 },
