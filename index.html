@@ -84,7 +84,7 @@
     <img id= "candy" src ="candy.png" onclick="toggleCandy()">
  <div id="pre-cre"> 
      <img id= "cake" src ="cake.png">
-     <img id= "fire" src ="fire.gif" >
+     <img id= "fire" src ="Fire.gif" >
 
    <div id="fire2">
   
@@ -313,7 +313,7 @@ function hideItemPopup() {
 
   for (let i = 0; i < count; i++) {
     const img = document.createElement("img");
-    img.src = "fire.gif";
+    img.src = "Fire.gif";
     const distance = Math.abs(i - center); // khoảng cách tới tâm
     img.style.setProperty("--delay", distance * 0); // càng xa tâm càng trễ
     container.appendChild(img);
