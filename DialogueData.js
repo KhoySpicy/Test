@@ -92,7 +92,7 @@ const dialogueData =[
 {
     id: "greetend",
   Name: "Monika",
-  avatar: "Mon5.wepb",
+  avatar:"Mon5.wepb",
   text:"Tạm thời như thế đi. Công việc của tôi ở đây cũng xong rồi, chúng ta sẽ gặp lại sau ",
       
 },
@@ -102,8 +102,7 @@ const dialogueData =[
   avatar: "confuse.gif",
   text:"Hai thằng điên kia đứng đó tạo dáng làm gì vậy bây?",
   options: [
-    {label: "cô là ai vậy?", next: "monikaBg2end"},
-  {label: "Cẩn thận con cá?", next: "monikaBg2end"}]
+    {label: "chịu chết"}]
   },
     {
       sfx:"Kako.mp3",
