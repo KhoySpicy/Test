@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 200vh;
-  overflow-y: auto
+  overflow-y: hidden;
 }
 #itemPopupOverlay {
   display: none;
@@ -451,7 +451,7 @@ display: none;
 
 
   #pepper {
-    
+    display:none;
     position: absolute;
     max-height: 13%;
     width: auto;
