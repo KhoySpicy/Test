@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="Bday.css">
+    <title>Yippeee!</title>
+</head>
+  <body>
+    
+<audio id="jump" src="jump.mp3"></audio>
+<audio id="tele" src="Tele.mp3"></audio>
+<audio id="flower" src="flower.mp3"></audio>
+<audio id="kako" src="Kako.mp3"></audio>
+<audio id="tutu" src="Tuturu.mp3"></audio>
+<div id= "dialogueWrapper">
+  <div id="dialogueBox"> <!-- Dialogue Box-->
+  
+  <div id="Name"></div>
+
+    
+  <div id="text"></div>
+ 
+  <div id="options">
+    <!-- buttons sẽ được JS nhét vào đây -->
+  </div>
+  </div>
+   <div id="avatar">
+     <img id = "charPic" src ="">
+   </div>
+   <div id="continueButton"></div>
+</div>
+    
+    <div id="">  
+
+    </div>
+      
+<div id="JumpLayer">
+  <form id="Check" onsubmit="Jump(); return false;">
+  <input id="Cinput" type="text" placeholder="Hãy nhập ngày và tháng sinh VD:04/04">
+  <button id ="Cbutton" type="submit"> Check </button>
+  </form>
+  <img id= "Speed" src ="Speed.gif">
+</div>
+
+  
+<div id="bgPickerPanel" style="display:none;"></div>
+    <div id="layer2">  
+      
+      <div id="white-card"> 
+
+       <h1 class="bday-title">
+ <span id="happy"> Happy </span>  
+  <span class="wave-word">
+    <span style="--i:1">B</span>
+    <span style="--i:2">i</span>
+    <span style="--i:3">r</span>
+    <span style="--i:4">t</span>
+    <span style="--i:5">h</span>
+    <span style="--i:6">d</span>
+    <span style="--i:7">a</span>
+    <span style="--i:8">y</span>
+  </span>
+</h1>
+    
+    <img id= "monikaBg2" src ="Monika.gif" onclick="openDia('monikaBg2')">
+    <img id= "candy" src ="Candy.png">
+ <div> 
+     <img id= "cake" src ="cake.png">
+     <img id= "fire" src ="fire.gif">
+ </div>       
+
+    <div id="clash">
+      <img id= "confuse" src ="confuse.gif" onclick= "openDia('confuse')">
+      <img id= "menace1" src ="menace.gif">
+      <img id= "menace2" src ="menace.gif">
+        <img id= "dio" src ="Dio.gif" onclick="openDia('clash')">
+    </div>
+
+        
+    <img id= "sponge" src ="spongedance.gif">    
+    <img id= "pepper" src ="jalapeno.gif" onclick="openDia('spicy')">      
+    <img id= "roach" src ="roach.gif">
+    <img id= "mop" src ="Mop.gif">
+        <div id= "beat" > 
+    
+    <img id= "sakuya" src ="Sakuya.gif" onclick="openDia('sakuya')">
+    <img id="beatup" src ="CirnoRemi.gif">
+    <img id= "banana" src ="Banana.gif" onclick="openDia('banana')">
+    <img id= "pop" src ="Pop.gif" onclick="openDia('pop')">    
+        </div>
+
+        <div id= "koosh" > 
+    <img id="reimu" src ="Fumoreimu.gif">
+    <img id= "koishi" src ="Koishidance2.gif" onclick = "openDia('Koishi')">
+    <img id= "cirno" src ="cirnofumo.gif">    
+        </div>
+
+        
+        </div>
+    
+<div id= "mine" > 
+    <img id="steve" src ="Steve.gif">
+    <img id="apple" src ="apple.gif">
+    <img id= "ghast" src ="ghast.gif">
+    <img id= "marisa" src ="Marisafly.gif">    
+</div>
+      
+      <div id= "trust" > 
+    <img id="fih" src ="fih.gif" onclick="openDia('fih')">
+    <img id="tree" src ="tree.gif" onclick="openDia('sans')">
+   <img id="dave" src ="Dave.gif" onclick="openDia('dave')"> 
+   <img id="keiki" src ="Keiki.jpg" onclick="toggleBgPicker();openDia('keiki')">     
+    <img id="sans" src ="Sleep.gif" onclick="openDia('sans')">    
+      </div>
+      
+  <img id= "reisen" src ="Reisen.gif">
+  <img id= "rem" src ="Rem.gif">
+  <img id= "sayori" src ="Sayori.gif">
+  <img id= "natsuki" src ="natsuki.gif">
+  <img id= "yuri" src ="Yuri.gif">    
+<img id= "bg2" src ="layer2BG.jpg">
+      
+  </div>
+
+
+<div id="itemPopupOverlay">
+  <div id="itemPopupBox">
+    <img id="itemPopupIcon" src="" alt="">
+    <div id="itemPopupText"></div>
+  </div>
+</div>
+    
+</body>
+<script src="DialogueData.js"></script>
+<script src="DataLogic.js"></script>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+    const bg2 = document.getElementById("bg2");
+
+    if (!bg2) return;
+
+    // Bắt sự kiện cuộn trang web
+    window.addEventListener("scroll", () => {
+      // 1. Quãng đường đã cuộn xuống (pixel)
+      const scrollTop = window.scrollY;
+
+      // 2. Tổng quãng đường có thể cuộn tối đa
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (maxScroll > 0) {
+        // 3. Quy đổi thành % từ 0 đến 100
+        const scrollPercent = (scrollTop / maxScroll) * 100;
+
+        // 4. Cập nhật góc nhìn cho ảnh bg2
+        bg2.style.objectPosition = `center ${scrollPercent}%`;
+      }
+    });
+  });
+
+  
+ function flash() {
+   const soundtele = document.getElementById("tele");
+   
+   document.body.classList.add("flash");
+   soundtele.currentTime = 0.3;
+   soundtele.play();
+document.getElementById("JumpLayer").style.display = "none";
+   document.body.addEventListener("animationend", function() {
+    document.body.classList.remove("flash");
+  }, { once: true });
+ }
+
+  
+  function Jump() {
+    const soundjump = document.getElementById("jump");
+    const val = document.getElementById("Cinput").value.trim();
+    if (val === "09/09") {
+      document.getElementById("Speed").style.display = "block";
+      
+      setTimeout(flash, 2500);
+    } 
+    else {
+document.getElementById("Speed").style.display = "none";
+    }
+  }
+
+  // Danh sách background khả dụng — thêm/bớt tuỳ ý
+const bgOptions = [
+  { name: "boi", src: "BoiBg.jpg" },
+  { name: "toho1",    src: "Toho1.jpg" },
+  { name: "toho2",    src: "Toho2.png" },
+  { name: "toho3",    src: "Toho3.jpg" },
+  { name: "toho4",    src: "Toho4.jpg" },
+  { name: "toho5",    src: "Toho5.png" },
+  { name: "toho6",    src: "Toho6.png" },
+  { name: "toho7",    src: "Toho7.jpeg" },
+  { name: "toho8",    src: "layer2BG.jpg" },
+];
+
+function buildBgPicker() {
+  const panel = document.getElementById("bgPickerPanel");
+  panel.innerHTML = ""; // xoá cũ nếu build lại
+
+  bgOptions.forEach(opt => {
+    const thumb = document.createElement("img");
+    thumb.src = opt.src;
+    thumb.title = opt.name;
+    thumb.onclick = () => setBackground(opt.src);
+    panel.appendChild(thumb);
+  });
+}
+
+function setBackground(src) {
+  const bg2 = document.getElementById("bg2");
+  if (bg2) bg2.src = src;
+}
+
+function toggleBgPicker() {
+  const panel = document.getElementById("bgPickerPanel");
+  panel.style.display = (panel.style.display === "none") ? "flex" : "none";
+}
+
+// Build panel khi trang load
+window.addEventListener("DOMContentLoaded", buildBgPicker);
+
+
+  function showItemPopup(iconSrc, text, duration = 2000) {
+  const overlay = document.getElementById("itemPopupOverlay");
+  const icon = document.getElementById("itemPopupIcon");
+  const textEl = document.getElementById("itemPopupText");
+
+  icon.src = iconSrc;
+  textEl.innerHTML = text;
+  overlay.style.display = "flex";
+
+  // Bấm vào đâu cũng tắt ngay
+  overlay.onclick = () => hideItemPopup();
+
+  // Tự tắt sau `duration` ms (nếu muốn tự động, bỏ dòng dưới nếu chỉ muốn tắt bằng click)
+  clearTimeout(overlay._autoHideTimer);
+  overlay._autoHideTimer = setTimeout(() => hideItemPopup(), duration);
+}
+
+function hideItemPopup() {
+  document.getElementById("itemPopupOverlay").style.display = "none";
+}
+</script>
+
