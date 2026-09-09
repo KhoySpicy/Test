@@ -379,7 +379,7 @@ const dialogueData =[
   Name: "Dave điên",
   avatar: "Davebg.gif",
   text:"Wabby-Ogigagigigoogigigagogoogah!",
-onExit: () => { showItemPopup("jalapeno.gif", "Nhận được: Jalapeno!", 2500); 
+onExit: () => { showItemPopup("Jalapeno.gif", "Nhận được: Jalapeno!", 2500); 
                 const sfx = document.getElementById("davesfx3");
   sfx.currentTime = 0; sfx.play();
                 document.getElementById("pepper").style.display = "flex"; }
