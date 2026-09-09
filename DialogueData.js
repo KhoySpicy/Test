@@ -23,13 +23,87 @@ function stopSfx() {
   }
 }
 const dialogueData =[
+  {sfx:"Maintheme.mp3",
+    id: "greet",
+  Name: "???",
+  avatar: "Mon5.webp",
+  text:"Xin chào!",
+  options: [{label: "cô là ai vậy?", next: "greet1"},
+    {label: "là Monika kìaaaa!?", next: "greetex"}, ]
+  },
+{
+    id: "greet1",
+  Name: "Monika",
+  avatar: "Mon4.webp",
+  text:"Tôi là Monika. Người hướng dẫn ở đây",
+  next:"greet2" 
+  },
+{
+    id: "greetex",
+  Name: "Monika",
+  avatar: "Mon11.webp",
+  text:"Ôi chà... có vẻ như đây không phải lần đầu chúng ta gặp nhau nhỉ. Vậy tôi sẽ bỏ qua phần giới thiệu nhé",
+  next:"greet2" 
+  },
+{
+    id: "greet2",
+  Name: "Monika",
+  avatar: "Mon10.webp",
+  text:"Như cậu đã thấy đó, muốn vào trang này phải nhập một chuỗi kí tự đặc biệt. Cái này quá dễ phải không?",
+  next:"greet3" 
+  },
+{
+    id: "greet3",
+  Name: "Monika",
+  avatar: "Mon8.webp",
+  text:"Nhưng tất nhiên có một chuyện cần phải lưu ý. Con cá",
+  options: [{label: "Con cá?", next: "greet4"},
+    {label: "Cái gì cơ??", next: "greet4"}, ]
+  },
+{
+    id: "greet4",
+  Name: "Monika",
+  avatar: "Mon7.webp",
+  text:"Đúng vậy. Là con cá, có một thứ đang làm đảo lộn hết mọi thứ lên, và nó trông như một con cá",
+   next: "greet5"
+  },
+{
+    id: "greet5",
+  Name: "Monika",
+  avatar: "Mon9.webp",
+  text:"Hãy nhớ: Không được tương tác với nó, không được nói chuyện với nó, không được tin bất kì lời nói nào của nó",
+  options: [{label: "cô sợ một con cá sao?", next: "greet6"},
+    {label: "một con cá thì có gì đáng sợ?", next: "greet7"}, ]
+  },
+{
+    id: "greet6",
+  Name: "Monika",
+  avatar: "Mon3.webp",
+  text:"Chà... chuyện này thật khó giải thích ",
+ next: "greetend"
+  },
+{
+    id: "greet7",
+  Name: "Monika",
+  avatar: "Mon1.webp",
+  text:"Đừng có chủ quan như thế chứ... nếu nó không nguy hiểm tôi đã chẳng cảnh báo làm gì",
+ next: "greetend"
+  },
+{
+    id: "greetend",
+  Name: "Monika",
+  avatar: "confuse.gif",
+  text:"Tạm thời như thế đi. Công việc của tôi ở đây cũng xong rồi, chúng ta sẽ gặp lại sau ",
+      
+},
  {
     id: "confuse",
   Name: "mồn lèo bối rối",
   avatar: "confuse.gif",
   text:"Hai thằng điên kia đứng đó tạo dáng làm gì vậy bây?",
   options: [
-    {label: "chịu chết..."} ]
+    {label: "cô là ai vậy?", next: "monikaBg2end"},
+  {label: "Cẩn thận con cá?", next: "monikaBg2end"}]
   },
     {
       sfx:"Kako.mp3",
@@ -46,13 +120,13 @@ const dialogueData =[
   text:"MUDA MUDA MUDA MUDA MUDA MUDA MUDA",
    
   },
-  {
+  { sfx:"Crysfx.mp3",
     id: "banana",
   Name: "mèo củ chuối",
   avatar: "Banana.gif",
   text:"Huhuhu, Remilia thua kèo rồi ông giáo ơi. Sakuya làm gì đi chứ...",
   },
-  {
+  { sfx:"ronaldosfx.mp3",
     id: "pop",
   Name: "đèo quan tâm",
   avatar: "Pop.gif",
@@ -61,21 +135,21 @@ const dialogueData =[
   {
     id: "monikaBg2",
   Name: "Monika",
-  avatar: "",
+  avatar: "Mon7.webp",
   text:"Chà, thật hỗn loạn quá đi mất. Họ quên mất cả việc phải thắp nến rồi...",
  next: "monikaBg2-1"
   },
   {
     id: "monikaBg2-1",
   Name: "Monika",
-  avatar: "",
+  avatar: "Mon1.webp",
   text:"Cậu có thể đi hỏi Sakuya thử xem. Dù sao cô ấy cũng là người chu đáo nhất ở đây, chắc hẳn là đã có chuẩn bị đầy đủ rồi ",
  next: "monikaBg2-2"
   },
   {
     id: "monikaBg2-2",
   Name: "Monika",
-  avatar: "",
+  avatar: "Mon8.webp",
   text:"Phải rồi còn một chuyện nữa. Còn nhớ việc tôi nhắc lúc nãy chứ?",
  options: [
     {label: "Cẩn thận con cá?", next: "monikaBg2end"},
@@ -84,21 +158,21 @@ const dialogueData =[
   {
     id: "monikaBg2-3",
   Name: "Monika",
-  avatar: "",
+  avatar: "Mon1.webp",
   text:"Trời đất ơi, không phải. Là con cá. C-O-N C-Á đó, hiểu chưa. Không được tin bất kì một lời nó nói",
     next: "monikaroll"
   },
   {
     id: "monikaBg2end",
   Name: "Monika",
-  avatar: "",
+  avatar: "Mon9.webp",
   text:"Chính xác. Không được phép tương tác với nó. Không được tin lời nó, một chữ cũng tuyệt đối không được tin",
     next: "monikaroll"
   },
     {
     id: "monikaroll",
   Name: "Monika",
-  avatar: "",
+  avatar: "Mon10.webp",
   text:"À phải rồi, thêm một điều nữa. Cậu có biết là ở đây có thể cuộn xuống được không?",
       onExit: () => {
         console.log("onExit CHẠY");
@@ -190,7 +264,7 @@ const dialogueData =[
   text:"Cô muốn thay đổi hình nền chứ?",
   },
     {
-    
+    sfx:"augh.mp3",
     id: "fih",
   Name: "Con cá đáng ngờ",
   avatar: "fih.gif",
@@ -292,7 +366,8 @@ const dialogueData =[
   text:"Ê này, nhưng ông bạn ở bên cạnh ta thì không đâu nhé",
    onExit:  () => { moveDaveToX(100); }
   },
-    {id: "dave",
+    {sfx:"davesfx1.mp3",
+      id: "dave",
   Name: "Dave điên",
   avatar: "Davebg.gif",
   text:"Wabby-wabbo!",
@@ -301,13 +376,33 @@ const dialogueData =[
      {label: "ông có thể giúp tôi được không?", next: "dave1"}
    ]
   },
-  {id: "dave1",
+  {sfx:"davesfx2.mp3",
+    id: "dave1",
   Name: "Dave điên",
   avatar: "Davebg.gif",
   text:"Wabby-Ogigagigigoogigigagogoogah!",
-onExit: () => { showItemPopup("jalapeno.gif", "Nhận được: Jalapeno!", 2500); document.getElementById("pepper").style.display = "flex"; }
+onExit: () => { showItemPopup("jalapeno.gif", "Nhận được: Jalapeno!", 2500); 
+                const sfx = document.getElementById("davesfx3");
+  sfx.currentTime = 0; sfx.play();
+                document.getElementById("pepper").style.display = "flex"; }
    
   },
+  {id: "spicy",
+  Name: "KhoySpicy",
+  avatar: "Jalapeno.gif",
+  text:"...",
+   options: [
+    {label: "Ê ông già!"},
+     {label: "*chọc giận quả ớt*"}
+   ],
+   onExit: () => { 
+  showFire2();
+  const sfx = document.getElementById("jalasfx");
+  sfx.currentTime = 0.5;   
+  sfx.play();       document.getElementById("pepper").style.display = "none";   document.getElementById("fire").style.display = "block";
+    document.getElementById("cake").onclick = onFireClick;
+  }
+  }
     ]
     
     /*effect logic*/

@@ -18,12 +18,14 @@ function render(id) {
   document.getElementById("Name").innerHTML = current.Name;
   document.getElementById("charPic").src = current.avatar
   optionsDiv.innerHTML ="";
+
+   if (current.sfx) { playSfx(current.sfx); } 
   
   if (current.clearEffect) {current.clearEffect.forEach(target=>clearEffect(target));}
   if (current.removeEffect) {current.removeEffect.forEach(({target, classname})=>removeEffect(target,classname));}
   if (current.effect) {effects(current.effect).apply()}
   
-  if (current.options && current.options.length >0) {nextButton.style.display = "block"; current.options.forEach(opt => {
+  if (current.options && current.options.length >0) {nextButton.style.display = "none"; current.options.forEach(opt => {
     const btn = document.createElement("button");
     btn.innerHTML = opt.label;
     btn.onclick = () => 

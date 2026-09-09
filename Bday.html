@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="Bday.css">
+    <title>Yippeee!</title>
+</head>
+  <body>
+    <audio id="maintheme" src="Maintheme.mp3"></audio>
+<audio src="Crysfx.mp3"></audio>
+  <audio src="fumosfx.mp3"></audio>
+ <audio src="rolnadosfx.mp3"></audio>   
+ <audio id="credit" src="credit.mp3"></audio>      
+<audio id="baka" src="bakasfx.mp3"></audio>
+<audio id="davesfx1" src="davesfx1.mp3"></audio>    
+<audio id="davesfx2" src="davesfx2.mp3"></audio>    
+ <audio id="davesfx3" src="davesfx3.mp3"></audio>   
+ <audio id="augh" src="augh.mp3"></audio>
+ <audio id="blow" src="blowsfx.mp3"></audio>   
+<audio id="jump" src="jump.mp3"></audio>
+<audio id="tele" src="Tele.mp3"></audio>
+<audio id="flower" src="flower.mp3"></audio>
+<audio id="kako" src="Kako.mp3"></audio>
+<audio id="tutu" src="Tuturu.mp3"></audio>
+<audio id="jalasfx" src="jalapenosfx.mp3"></audio>
+<div id= "dialogueWrapper">
+  <div id="dialogueBox"> <!-- Dialogue Box-->
+  
+  <div id="Name"></div>
+
+    
+  <div id="text"></div>
+ 
+  <div id="options">
+    <!-- buttons sẽ được JS nhét vào đây -->
+  </div>
+  </div>
+   <div id="avatar">
+     <img id = "charPic" src ="">
+   </div>
+   <div id="continueButton"></div>
+</div>
+    
+    <div id="">  
+
+    </div>
+      
+<div id="JumpLayer">
+  <div id="layer1"> 
+  <video src="Donatebg.mp4" autoplay loop muted id="bg1"></video>
+  <div id="greet"> 
+    <img id= "Monika1" src ="Monika1.gif" onclick="openDia('greet')">
+  <form id="Check" onsubmit="Jump(); return false;">
+  
+  <input id="Cinput" type="text" placeholder="Hãy nhập ngày và tháng sinh VD:04/04">
+  <button id ="Cbutton" type="submit"> Check </button>
+  </form>
+  </div>
+  <img id= "Speed" src ="Speed.gif">
+  </div>
+</div>
+
+  
+<div id="bgPickerPanel" style="display:none;"></div>
+    <div id="layer2">  
+      
+      <div id="white-card"> 
+
+       <h1 class="bday-title">
+ <span id="happy"> Happy </span>  
+  <span class="wave-word">
+    <span style="--i:1">B</span>
+    <span style="--i:2">i</span>
+    <span style="--i:3">r</span>
+    <span style="--i:4">t</span>
+    <span style="--i:5">h</span>
+    <span style="--i:6">d</span>
+    <span style="--i:7">a</span>
+    <span style="--i:8">y</span>
+  </span>
+</h1>
+    
+     
+    <img id= "candy" src ="candy.png" onclick="toggleCandy()">
+ <div id="pre-cre"> 
+     <img id= "cake" src ="cake.png">
+     <img id= "fire" src ="fire.gif" >
+
+   <div id="fire2">
+  
+   </div>
+   
+ </div>       
+
+    <div id="clash">
+      <img id= "confuse" src ="confuse.gif" onclick= "openDia('confuse')">
+      <img id= "menace1" src ="menace.gif">
+      <img id= "menace2" src ="menace.gif">
+        <img id= "dio" src ="Dio.gif" onclick="openDia('clash')">
+    </div>
+
+        
+    <img id= "sponge" src ="spongedance.gif">    
+    <img id= "pepper" src ="jalapeno.gif" onclick="openDia('spicy')">      
+    <img id= "roach" src ="roach.gif">
+    <img id= "mop" src ="Mop.gif">
+        <div id= "beat" > 
+    
+    <img id= "sakuya" src ="Sakuya.gif" onclick="openDia('sakuya')">
+    <img id="beatup" src ="CirnoRemi.gif">
+    <img id= "banana" src ="Banana.gif" onclick="openDia('banana')">
+    <img id= "pop" src ="Pop.gif" onclick="openDia('pop')">    
+        </div>
+
+        <div id= "koosh" > 
+    <img id="reimu" src ="Fumoreimu.gif" onclick="toggleImageAndSfx('reimu', 'Fumoreimu.gif', 'Reimupat.gif', 'fumosfx.mp3', 'fumosfx.mp3')">
+    <img id= "koishi" src ="Koishidance2.gif" onclick = "openDia('Koishi')">
+    <img id= "cirno" src ="cirnofumo.gif" onclick="document.getElementById('baka').play()">    
+        </div>
+
+        
+        </div>
+    
+<div id= "mine" > 
+    <img id="steve" src ="Steve.gif">
+    <img id="apple" src ="apple.gif">
+    <img id= "ghast" src ="ghast.gif">
+    <img id= "marisa" src ="Marisafly.gif">    
+</div>
+      
+      <div id= "trust" > 
+    <img id="fih" src ="fih.gif" onclick="openDia('fih')">
+    <img id="tree" src ="tree.gif" onclick="openDia('sans')">
+   <img id="dave" src ="Dave.gif" onclick="openDia('dave')"> 
+   <img id="keiki" src ="Keiki.jpg" onclick="toggleBgPicker();openDia('keiki')">     
+    <img id="sans" src ="Sleep.gif" onclick="openDia('sans')">    
+      </div>
+      
+  <img id= "reisen" src ="Reisen.gif">
+  <img id= "rem" src ="Rem.gif">
+  <img id= "sayori" src ="Sayori.gif">
+  <img id= "natsuki" src ="natsuki.gif">
+  <img id= "yuri" src ="Yuri.gif">    
+<img id= "bg2" src ="layer2BG.jpg">
+      
+  </div>
+
+
+<div id="itemPopupOverlay">
+  <div id="itemPopupBox">
+    <img id="itemPopupIcon" src="" alt="">
+    <div id="itemPopupText"></div>
+  </div>
+</div>
+
+<div id="layer3" style="display:none;">
+  <img id="bg3" src ="Bg3.jpg"> <img>
+   <div id="creditRoll">
+    <h class="theEnd">THE END</h>
+    <p>Coder: KhoySpicy</p>
+      <img src="Jalapeno.gif" class="creditImg">
+    <p>Kịch bản: KhoySpicy</p>
+    <p>Âm nhạc: Dự án đông phương</p>
+     <div class="creditImgPair"> 
+     <img src="Marisacre.gif" class="creditImg">
+       <img src="Reimucre.gif" class="creditImg">
+     </div>
+   <p>Trợ thủ đắc lực: Gemini, Claude</p>
+     <div class="creditImgPair"> 
+     <img src="Gemini.gif" class="creditImg">
+       <img src="Claude.gif" class="creditImg">
+     </div>
+     <p>Hướng dẫn viên đắc lực: Monika</p>
+     <img src="Monikacre.gif" class="creditImg">
+    <p>Cảm ơn đặc biệt: Thách đố danh hài cu boi</p>
+     <img src="BoiBg.jpg" class="creditImg">
+  <p>Tại sao con này lại ở đây?</p>  
+ <img src="fih.gif" class="creditImg">
+  <p>Hung thủ của sự lộn xộn này</p>   
+<img src="Yukari.gif" class="creditImg">
+     
+   </div>
+</div>
+    
+</body>
+<script src="DialogueData.js"></script>
+<script src="DataLogic.js"></script>
+<script>
+
+window.addEventListener("DOMContentLoaded", () => {
+    const bg2 = document.getElementById("bg2");
+
+    if (!bg2) return;
+
+    // Bắt sự kiện cuộn trang web
+    window.addEventListener("scroll", () => {
+      // 1. Quãng đường đã cuộn xuống (pixel)
+      const scrollTop = window.scrollY;
+
+      // 2. Tổng quãng đường có thể cuộn tối đa
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (maxScroll > 0) {
+        // 3. Quy đổi thành % từ 0 đến 100
+        const scrollPercent = (scrollTop / maxScroll) * 100;
+
+        // 4. Cập nhật góc nhìn cho ảnh bg2
+        bg2.style.objectPosition = `center ${scrollPercent}%`;
+      }
+    });
+  });
+
+  
+ function flash() {
+   const soundtele = document.getElementById("tele");
+ const soundflower = document.getElementById("flower");  
+   document.body.classList.add("flash");
+   soundtele.currentTime = 0.3;
+   soundtele.play();
+soundtele.play();
+soundtele.addEventListener("ended", () => {
+  soundflower.currentTime = 0;
+  soundflower.play();
+}, { once: true });
+   
+document.getElementById("JumpLayer").style.display = "none";
+ document.getElementById("layer2").style.display = "flex";  document.body.addEventListener("animationend", function() {
+    document.body.classList.remove("flash");
+  }, { once: true });
+ }
+
+  
+  function Jump() {
+    const soundjump = document.getElementById("jump");
+    const val = document.getElementById("Cinput").value.trim();
+    if (val === "09/09") {
+    soundjump.play();
+      document.getElementById("Speed").style.display = "block";
+      
+      setTimeout(flash, 2500);
+    } 
+    else {
+document.getElementById("Speed").style.display = "none";
+    }
+  }
+
+  // Danh sách background khả dụng — thêm/bớt tuỳ ý
+const bgOptions = [
+  { name: "boi", src: "BoiBg.jpg" },
+  { name: "toho1",    src: "Toho1.jpg" },
+  { name: "toho2",    src: "Toho2.png" },
+  { name: "toho3",    src: "Toho3.jpg" },
+  { name: "toho4",    src: "Toho4.jpg" },
+  { name: "toho5",    src: "Toho5.png" },
+  { name: "toho6",    src: "Toho6.png" },
+  { name: "toho7",    src: "Toho7.jpeg" },
+  { name: "toho8",    src: "layer2BG.jpg" },
+{ name: "toho9",    src: "Toho99.jpg" }
+];
+
+function buildBgPicker() {
+  const panel = document.getElementById("bgPickerPanel");
+  panel.innerHTML = ""; // xoá cũ nếu build lại
+
+  bgOptions.forEach(opt => {
+    const thumb = document.createElement("img");
+    thumb.src = opt.src;
+    thumb.title = opt.name;
+    thumb.onclick = () => setBackground(opt.src);
+    panel.appendChild(thumb);
+  });
+}
+
+function setBackground(src) {
+  const bg2 = document.getElementById("bg2");
+  if (bg2) bg2.src = src;
+}
+
+function toggleBgPicker() {
+  const panel = document.getElementById("bgPickerPanel");
+  panel.style.display = (panel.style.display === "none") ? "flex" : "none";
+}
+
+// Build panel khi trang load
+window.addEventListener("DOMContentLoaded", buildBgPicker);
+
+
+  function showItemPopup(iconSrc, text, duration = 2000) {
+  const overlay = document.getElementById("itemPopupOverlay");
+  const icon = document.getElementById("itemPopupIcon");
+  const textEl = document.getElementById("itemPopupText");
+
+  icon.src = iconSrc;
+  textEl.innerHTML = text;
+  overlay.style.display = "flex";
+
+  // Bấm vào đâu cũng tắt ngay
+  overlay.onclick = () => hideItemPopup();
+
+  // Tự tắt sau `duration` ms (nếu muốn tự động, bỏ dòng dưới nếu chỉ muốn tắt bằng click)
+  clearTimeout(overlay._autoHideTimer);
+  overlay._autoHideTimer = setTimeout(() => hideItemPopup(), duration);
+}
+
+function hideItemPopup() {
+  document.getElementById("itemPopupOverlay").style.display = "none";
+}
+
+   function buildFireRow(count = 5) {
+  const container = document.getElementById("fire2");
+  container.innerHTML = "";
+  const center = (count - 1) / 2; // vị trí tâm (vd count=5 → center=2)
+
+  for (let i = 0; i < count; i++) {
+    const img = document.createElement("img");
+    img.src = "fire.gif";
+    const distance = Math.abs(i - center); // khoảng cách tới tâm
+    img.style.setProperty("--delay", distance * 0); // càng xa tâm càng trễ
+    container.appendChild(img);
+  }
+    }
+  function showFire2() {
+  buildFireRow(31); // tạo lại để animation chạy lại từ đầu mỗi lần gọi
+  document.getElementById("fire2").style.display = "flex";
+  }
+  function toggleCandy() {
+  const img = document.getElementById("candy");
+  if (img.src.includes("candy.png")) {
+    img.src = "Kana.gif";
+  } else {
+    img.src = "candy.png";
+  }
+  }
+  function toggleImageAndSfx(imgId, srcA, srcB, sfxA, sfxB) {
+  const img = document.getElementById(imgId);
+  if (!img) return;
+
+  // Lấy tên file hiện tại để so sánh (bỏ qua phần đường dẫn đầy đủ nếu có)
+  const isA = img.src.includes(srcA);
+
+  if (isA) {
+    img.src = srcB;
+    if (sfxB) playSfx(sfxB);
+  } else {
+    img.src = srcA;
+    if (sfxA) playSfx(sfxA);
+  }
+  }
+    function flash2() {
+  const soundtele = document.getElementById("tele");
+  const soundflower = document.getElementById("flower");
+  document.body.classList.add("flash");
+  soundtele.currentTime = 0.3;
+  soundtele.play();
+  soundflower.pause();
+      document.getElementById("layer2").style.display = "none";  // đổi từ JumpLayer sang layer2
+  document.body.addEventListener("animationend", function() {
+    document.body.classList.remove("flash");
+  }, { once: true });
+      setTimeout(showCredits, 1000);
+    }
+  
+  function showCredits() {
+  document.getElementById("layer3").style.display = "flex"; 
+
+  const sfx = document.getElementById("credit");
+  sfx.currentTime = 0;
+  sfx.play();
+      }
+  function onFireClick() {
+  const sfx = document.getElementById("blow");
+  sfx.currentTime = 0;
+  sfx.play();
+
+  document.getElementById("fire").style.display = "none";
+
+  setTimeout(flash2, 3000);
+  }
+</script>
+

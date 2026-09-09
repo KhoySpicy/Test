@@ -47,6 +47,12 @@ html, body {
   0%   { transform: scale(0.5); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
+@keyframes fireRipple {
+  0%   { transform: scale(0.3); opacity: 0; }   /* bắt đầu nhỏ, trong suốt */
+  30%  { transform: scale(1.1); opacity: 1; }    /* bùng lên nhanh */
+  60%  { transform: scale(1);   opacity: 1; }    /* giữ ổn định 1 nhịp */
+  100% { transform: scale(0.5); opacity: 0; }    /* thu nhỏ, tắt dần */
+}
 #bgPickerToggle {
   position: fixed;
   top: 10px;
@@ -87,6 +93,15 @@ html, body {
 /*dialogueBox section*/
 #Name {
   margin-bottom: 10px;
+  font-weight: bold;
+  color: #1e3a5f;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+}
+#text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
 }
 #dialogueWrapper{
 position: fixed;
@@ -132,7 +147,6 @@ display: none;
 }
 /* options and continue section */
 #options {
-  border: 3px solid yellow;
   height: 100px;
   width: 100px;
   position: absolute;
@@ -140,9 +154,25 @@ display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center ;
+  gap: 30px;
   top: 0;
   left: 50%;
   transform: translate(-50%,-150%);
+}
+#options button {
+  border: 3px double rgb(137, 207, 240);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  color: #333;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#options button:hover {
+  background:rgba(0, 255, 255,0.6);
+  color: white;
+  transform: translateX(4px);
 }
 #continueButton {
   position: absolute;
@@ -194,14 +224,23 @@ display: none;
   animation: flashBlackWhite 2s 1 forwards;
   z-index: 100;
 }
-
-
+#greet{
+  position: absolute;
+  z-index: 2;
+}
+#Monika1 {
+  top: 0;
+  height: 10vh;
+  width: auto;
+  transform: translate(90%,10%);
+  z-index: 2;
+}
 #Check {
   display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
-  max-width: 800px;
+  width: 50vw;
   min-height: 3vh;
   border-radius:8px ;
   border: 3px solid green;
@@ -215,8 +254,7 @@ display: none;
 }
 
 #Cbutton {
-  margin-left: -5px;
-  padding: 10px 14px;
+  
   background: none;
   border: none ;
   border-left: 2px solid purple
@@ -225,7 +263,7 @@ display: none;
 #JumpLayer {
   width: 100vw;
   height: 100vh;
-  display: none;
+  display: flex;
   justify-content: center; /* Căn giữa ngang */
   align-items: center;
   
@@ -235,20 +273,35 @@ display: none;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+ height: 100%;
   object-fit: cover;
   display: none;
   z-index: 1;
 }
 
  /* ********************* */
-#layer2 {
+#layer1 {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
+}
+  #bg1 {
+  position: fixed; /* Đặt GIF phủ toàn bộ màn hình */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+#layer2 {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
   #bg2 {
   position: fixed; /* Đặt GIF phủ toàn bộ màn hình */
   top: 0;
@@ -256,8 +309,24 @@ display: none;
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   }
+  #layer3 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;        /* thêm nếu chưa set qua JS */
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+#bg3 {
+  position: fixed;
+  top: 0;                /* ← thêm */
+  left: 0;                /* ← thêm */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
   #white-card {
     position: relative;
@@ -337,7 +406,7 @@ display: none;
     position: absolute;
     max-height: 17%;
     width: auto;
-    z-index: 2;
+    z-index: 3;
   }
     #pre-cre {
     display: flex;
@@ -350,18 +419,39 @@ display: none;
     max-height: 100%;
     width: auto;
     z-index: 2;
-    
+    transform: translateY(150%);
   }
     #fire {
+      display: none;
     position: absolute;
     max-height: 17%;
     width: auto;
     z-index: 2;
-    
+    transform: translate(198%,600%);
     }
+  #fire2 {
+    display: none;
+    position: absolute;
+    width: auto;
+    flex-direction: row;
+  align-items: flex-end;
+  gap: -5px;
+    z-index: 2;
+    transform: translate(-900px, 100%);
+  }
+  #fire2 img {
+  height: 15vh;
+  width: auto;
+  transform-origin: bottom center;
+  opacity: 0;                              /* mặc định tắt, chờ animation bật lên */
+  animation: fireRipple 1.2s ease-out forwards;
+  animation-delay: calc(var(--delay) * 1s);
+}
+
+
 
   #pepper {
-    display: hidden;
+    
     position: absolute;
     max-height: 13%;
     width: auto;
@@ -584,4 +674,47 @@ display: none;
       bottom: 0;
     transform: scale(2.0) translate(-300%,600%);
   }
+#creditRoll {
+  position: absolute;
+  top: 100%;           /* bắt đầu từ NGAY DƯỚI viewport */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  line-height: 2;
+  animation: creditScroll 60s linear forwards;
+}
+
+@keyframes creditScroll {
+  from { top: 100%; }
+  to   { top: -150%; }  /* cuộn hết lên trên, ra khỏi màn hình phía trên */
+}
+.theEnd {
+  font-size: 2.5rem;      /* to hơn nhiều so với chữ thường (1.2rem) */
+  font-weight: 900;        /* đậm tối đa */
+  letter-spacing: 4px;     /* giãn chữ, tạo cảm giác trang trọng */
+  margin-top: 40px;         /* cách xa phần credit phía trên */
+  color: #6495ED;           /* hoặc màu nổi bật khác tuỳ theme */
+  text-shadow: 0 0 12px rgba(255, 182, 220, 0.8); /* hiệu ứng phát sáng nhẹ */
+}
+#creditRoll p {
+  color: #000;
+  font-size: 1.4rem;   /* tăng từ mặc định lên — chỉnh số này tuỳ độ to bạn muốn */
+  font-weight: 600;
+}
+.creditImgPair {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   /* canh giữa theo chiều ngang (vì giờ là row) */
+  align-items: center;         /* canh giữa theo chiều dọc nếu 2 ảnh cao khác nhau */
+  gap: 12px;
+}
+
+.creditImgPair .creditImg {
+  max-width: 150px;   /* nhỏ lại — chỉnh số này tuỳ độ nhỏ bạn muốn */
+  max-height: 150px;
+}
    /* ********************* */
