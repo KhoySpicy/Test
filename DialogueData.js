@@ -181,7 +181,7 @@ const dialogueData =[
     {
     id: "sakuya",
   Name: "Sakuya Izayoi",
-  avatar: "sakuyabg.png",
+  avatar: "Sakuyabg.png",
   text:"Xin chào. Tôi là Sakuya Izayoi - hầu gái trưởng của Hồng Ma Quán. Cô có cần gì không ạ?",
  options: [
     {label: "hai người kia đang làm trò gì vậy?", next: "sakuya1"},
@@ -190,12 +190,12 @@ const dialogueData =[
   {
     id: "sakuyaend",
   Name: "Sakuya Izayoi",
-  avatar: "sakuyabg.png",
+  avatar: "Sakuyabg.png",
   text:"A...thế mà tôi lại quên mất chuyện này. Nhưng hiện giờ tôi không có thứ gì như thế, xin thứ lỗi ạ",
   },
   { id: "sakuya1",
   Name: "Sakuya Izayoi",
-  avatar: "sakuyabg.png",
+  avatar: "Sakuyabg.png",
   text:"Họ đang thử trò chơi mới ấy mà. Đánh nhau bằng tay thay vì dùng 'Luật bài phù' - đặc sản của Ảo Tưởng Hương. Rất vui đúng không ạ?",
  options: [
     {label: "Tôi thấy cô chủ cô đang bị ăn hành ngập mồm kìa...", next: "sakuya2"},
@@ -204,7 +204,7 @@ const dialogueData =[
   {
     id: "sakuya2",
   Name: "Sakuya Izayoi",
-  avatar: "sakuyabg.png",
+  avatar: "Sakuyabg.png",
   text:"Không sao đâu. Tiểu thư Remilia là một người kiên cường, cô ấy sẽ ổn thôi",
   },
   {
